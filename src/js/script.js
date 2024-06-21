@@ -1,11 +1,11 @@
 
 
 import firstScreen from "./modules/firstScreen";
-import showScreen from "./modules/showScreen";
+import toggleScreen from "./modules/toggleScreen";
 
 
 window.addEventListener('DOMContentLoaded', () => {
-   showScreen();
+   toggleScreen();
    firstScreen();
    
 })

@@ -12,20 +12,22 @@
             <nav>
                 <ul class="menu__list">
                     <li class="menu__item"><input type="checkbox" id="toggle-need-rates" checked> Валюта за определенный день</li>
-                    <li class="menu__item"><input type="checkbox" id="toggle-historical-rates" checked> История валюты</li>
-                    <li class="menu__item"><input type="checkbox" id="toggle-converter" checked > Конвертер валюты</li>
+                    <li class="menu__item"><input type="checkbox" id="toggle-historical-rates" > История валюты</li>
+                    <li class="menu__item"><input type="checkbox" id="toggle-converter"> Конвертер валюты</li>
                 </ul>
             </nav>
         </div>
     </section>
     
-    <section class="screen">
+    <section class="screen screen_active">
         <div class="container">
             <h2>Валюта за определенный день</h2>
-            <label for="date-today">Дата:</label>
-            <input type="date" id="date-today">
-            <button>Показать курс</button>
-            <div id="today-rates-result"></div>
+            <div class="date">
+                <label for="date-current">Ввведите дату:</label>
+                <input type="date" id="date-current">
+            </div>
+            <button class="button button__show-rates">Показать курс</button>
+            <div id="current-rates-result"></div>
         </div>
     </section>
         
