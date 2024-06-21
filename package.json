@@ -1,0 +1,16 @@
+{
+  "name": "view-currency",
+  "version": "1.0.0",
+  "description": "test task",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.77.6",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр валюты</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <section class="menu">
+        <div class="container">
+            <nav>
+                <ul class="menu__list">
+                    <li class="menu__item"><input type="checkbox" id="toggle-need-rates" checked> Валюта за определенный день</li>
+                    <li class="menu__item"><input type="checkbox" id="toggle-historical-rates" checked> История валюты</li>
+                    <li class="menu__item"><input type="checkbox" id="toggle-converter" checked > Конвертер валюты</li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    
+    <section class="screen">
+        <div class="container">
+            <h2>Валюта за определенный день</h2>
+            <label for="date-today">Дата:</label>
+            <input type="date" id="date-today">
+            <button>Показать курс</button>
+            <div id="today-rates-result"></div>
+        </div>
+    </section>
+        
+        
+    <script src="js/bundle.js"></script>
+</body>
+</html>

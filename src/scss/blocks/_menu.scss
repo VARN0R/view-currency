@@ -1,0 +1,14 @@
+.menu {
+    background-color: var(--menu-bg-color);
+    min-height: 50px;
+    &__list {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        min-height: 50px;
+        list-style-type: none;
+    }
+    &__item {
+        color: #fff;
+    }
+}
