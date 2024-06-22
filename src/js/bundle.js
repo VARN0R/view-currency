@@ -25108,11 +25108,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 window.addEventListener('DOMContentLoaded', () => {
    (0,_modules_toggleScreen__WEBPACK_IMPORTED_MODULE_3__["default"])();
    (0,_modules_fetchCurrencies__WEBPACK_IMPORTED_MODULE_0__["default"])();
    (0,_modules_firstScreen__WEBPACK_IMPORTED_MODULE_1__["default"])();
    (0,_modules_secondScreen__WEBPACK_IMPORTED_MODULE_2__["default"])();
+   
    
 })
 /******/ })()

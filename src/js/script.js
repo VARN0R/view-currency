@@ -1,5 +1,6 @@
 
 
+
 import fetchCurrencies from "./modules/fetchCurrencies";
 import firstScreen from "./modules/firstScreen";
 import secondScreen from "./modules/secondScreen";
@@ -11,5 +12,6 @@ window.addEventListener('DOMContentLoaded', () => {
    fetchCurrencies();
    firstScreen();
    secondScreen();
+   
    
 })

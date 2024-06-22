@@ -11,9 +11,18 @@
         <div class="container">
             <nav>
                 <ul class="menu__list">
-                    <li class="menu__item"><input type="checkbox" id="toggle-need-rates" checked> Валюта за определенный день</li>
-                    <li class="menu__item"><input type="checkbox" id="toggle-historical-rates" > История валюты</li>
-                    <li class="menu__item"><input type="checkbox" id="toggle-converter"> Конвертер валюты</li>
+                    <li class="menu__item">
+                        <div><label id="switch" class="switch"><input type="checkbox" id="slider" checked><span class="slider round"></span></label></div>
+                        <div class="menu__text">Валюта за определенный день</div>
+                    </li>
+                    <li class="menu__item">
+                        <div><label id="switch" class="switch"><input type="checkbox" id="slider" ><span class="slider round"></span></label></div>
+                        <div class="menu__text">История валюты</div>
+                    </li>
+                    <li class="menu__item">
+                        <div><label id="switch" class="switch"><input type="checkbox" id="slider"><span class="slider round"></span> </label></div>
+                        <div class="menu__text">Конвертер валюты</div>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -24,7 +33,7 @@
             <h2>Валюта за определенный день</h2>
             <div class="date">
                 <label for="date-current">Введите дату:</label>
-                <input type="date" id="date-current">
+                <input class="date__input" type="date" id="date-current">
             </div>
             <button class="button button__show-rates">Показать курс</button>
             <div id="current-rates-result"></div>
@@ -37,7 +46,6 @@
         <div class="container">
             <h2>История валюты</h2>
             <div class="date">
-                <h3>Введите дату:</h3>
                 <label for="start-date">с:</label>
                 <input type="date" id="start-date">
                 <label for="end-date">по:</label>
@@ -60,7 +68,8 @@
         </div>
     </section>
         
-        
+    
     <script src="js/bundle.js"></script>
+    
 </body>
 </html>
