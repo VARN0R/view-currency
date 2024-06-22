@@ -66,11 +66,14 @@ function firstScreen() {
     }
     
     function displayTodayRates(data) {
-        const resultDiv = document.getElementById('current-rates-result');
+        const resultDiv = document.querySelector('.currencies-block');
+        resultDiv.style.display = "block";
         resultDiv.innerHTML = data.map(rate => `
-            <div>
-                <strong>${rate.Cur_Abbreviation}</strong>: ${rate.Cur_OfficialRate} ${rate.Cur_Name}
+            <div class="currencies-block__item">
+                <div class="currencies-block__abr">${rate.Cur_Abbreviation}</div>
+                <div class="currencies-block__field">${rate.Cur_OfficialRate}</div>
             </div>
+            <div class="currencies-block__text">${rate.Cur_Scale} ${rate.Cur_Name}</div>
         `).join('');
     }
 

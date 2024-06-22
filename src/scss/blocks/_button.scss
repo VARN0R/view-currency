@@ -1,7 +1,6 @@
 .button {
     width: 150px;
     height: 30px;
-    border-radius: 15px;
     background-color: var(--menu-bg-color);
     color: #fff;
     display: flex;
@@ -10,10 +9,9 @@
     cursor: pointer;
     outline: none;
     border: none;
-    scale: 1;
-    transition: 0.5s scale;
+    transition: 0.5s all;
     &:hover {
-        scale: 1.1; 
+        background-color: #5b80f9;
     }
     &__show-rates {
         margin-top: 10px;
