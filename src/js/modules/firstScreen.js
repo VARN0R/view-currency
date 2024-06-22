@@ -1,23 +1,25 @@
 function firstScreen() {
     const btn = document.querySelector(".button__show-rates");
-    
-    
+    let errors = [];
 
     function giveCurrentRates() {
-        
         const date = document.getElementById('date-current').value;
         const dateBlock = document.querySelector(".date");
-        if (!date) {
+        
+        if (!date && errors.length < 1) {
             const errorDiv = document.createElement("div");
             errorDiv.innerHTML = `
                 <div class="error">Неверно заполнена дата!</div>
             `;
             dateBlock.appendChild(errorDiv);
+            errors.push(errorDiv);
             return;
-        } else {
-            dateBlock.removeChild(errorDiv);
+        } else if (!date && errors.length >= 1) {
+            return;
+        } else if(errors.length >= 1) {
+            errors[0].remove();
+            errors = [];
         };
-        console.log("111");
         fetch(`https://www.nbrb.by/api/exrates/rates?ondate=${date}&periodicity=0`)
             .then(response => response.json())
             .then(data => displayTodayRates(data))

@@ -12,5 +12,9 @@
     "sass": "^1.77.6",
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.3",
+    "chartjs-adapter-date-fns": "^3.0.0"
   }
 }

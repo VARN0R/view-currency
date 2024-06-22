@@ -23,11 +23,38 @@
         <div class="container">
             <h2>Валюта за определенный день</h2>
             <div class="date">
-                <label for="date-current">Ввведите дату:</label>
+                <label for="date-current">Введите дату:</label>
                 <input type="date" id="date-current">
             </div>
             <button class="button button__show-rates">Показать курс</button>
             <div id="current-rates-result"></div>
+        </div>
+    </section>
+
+    <section class="screen">
+        <div class="container">
+            <h2>История валюты</h2>
+            <div class="date">
+                <h3>Введите дату:</h3>
+                <label for="start-date">с:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">по:</label>
+                <input type="date" id="end-date">
+            </div>
+            <div id="change-currency">
+                <label for="select-currency"></label>
+                <select id="select-currency"></select>
+            </div>
+            <div class="search-currency">
+                
+                <input type="text" id="search-currency" placeholder="Найти валюту">
+            </div>
+            <button id="history-button" class="button button__show-rates">Получить историю</button>
+            <div id="chart-container">
+                <canvas id="currencyChart"></canvas>
+            </div>
+            
+            
         </div>
     </section>
         
