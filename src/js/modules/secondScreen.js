@@ -45,6 +45,7 @@ function secondScreen() {
         
         console.log('Displaying Data:', data);
         const chartContainer = document.getElementById('chart-container');
+        chartContainer.classList.add("chart_active");
         chartContainer.innerHTML = ''; 
         
         if (data.length < 1) {

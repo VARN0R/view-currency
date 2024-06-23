@@ -14,3 +14,10 @@
         align-items: center;
     }
 }
+
+a {
+    color: #fff;
+    &:hover {
+        text-decoration: underline;
+    }
+}

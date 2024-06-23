@@ -23,13 +23,12 @@ function shareScreen() {
         
         
         navigator.clipboard.writeText(url).then(() => {
-            const descr = document.createElement("div");
-            descr.id = "descr-link";
-            descr.innerHTML = `Ссылка скопирована`;
-            descr.style.fontSize = "10px";
-            btn.insertAdjacentHTML('afterend', descr.outerHTML);
+            const temp = document.getElementById("button-share");
+            temp.innerText = ``;
+            temp.innerText = `Ссылка скопирована`;
             setTimeout(() => {
-               document.getElementById("descr-link").remove();
+                temp.innerText = ``;
+                temp.innerText = `Поделиться`;
             }, 500)
         })
     })

@@ -20,7 +20,7 @@ function thirdScreen() {
             const currentAmountCurrencyFrom = amountCurrencyFromInOneCopy * amount;
             const convertedAmount = currentAmountCurrencyFrom / amountCurrencyToInOneCopy;
 
-            document.getElementById('converter-result').textContent = `${amount} ${fromRate.Cur_Abbreviation} = ${convertedAmount.toFixed(2)} ${toRate.Cur_Abbreviation}`;
+            document.getElementById('converter-result').textContent = `${convertedAmount.toFixed(2)}`;
         })
         .catch(error => console.error('Error converting currency:', error));
     }

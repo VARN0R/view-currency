@@ -1,3 +1,11 @@
+
+.chart {
+    display: none;
+    &_active {
+        display: block;
+    }
+}
+
 #change-currency {
     margin-top: 15px;
 }

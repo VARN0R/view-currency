@@ -1,0 +1,31 @@
+.convert__currency-from, .convert__currency-to {
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    padding: 5px;
+    border-color: var(--menu-bg-color);
+    outline: none;
+    margin: 20px 5px;
+}
+
+.convert__input {
+    height: 30px;
+    width: 200px;
+    border: 1px var(--menu-bg-color) solid;
+    padding: 5px;
+    margin-left: 50px;
+}
+
+.convert__result {
+    height: 30px;
+    width: 200px;
+    border: 1px var(--menu-bg-color) solid;
+    padding: 5px;
+    margin-left: 54px;
+}
+
+.convert__wrapper {
+    display: flex;
+    align-items: center;
+}

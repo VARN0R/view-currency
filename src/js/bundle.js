@@ -16,7 +16,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function fetchCurrencies() {
-    console.log("555");
     fetch('https://www.nbrb.by/api/exrates/currencies')
         .then(response => response.json())
         .then(data => (0,_getSelectCurrency__WEBPACK_IMPORTED_MODULE_0__["default"])(data))
@@ -177,6 +176,7 @@ function secondScreen() {
         
         console.log('Displaying Data:', data);
         const chartContainer = document.getElementById('chart-container');
+        chartContainer.classList.add("chart_active");
         chartContainer.innerHTML = ''; 
         
         if (data.length < 1) {
@@ -312,13 +312,12 @@ function shareScreen() {
         
         
         navigator.clipboard.writeText(url).then(() => {
-            const descr = document.createElement("div");
-            descr.id = "descr-link";
-            descr.innerHTML = `Ссылка скопирована`;
-            descr.style.fontSize = "10px";
-            btn.insertAdjacentHTML('afterend', descr.outerHTML);
+            const temp = document.getElementById("button-share");
+            temp.innerText = ``;
+            temp.innerText = `Ссылка скопирована`;
             setTimeout(() => {
-               document.getElementById("descr-link").remove();
+                temp.innerText = ``;
+                temp.innerText = `Поделиться`;
             }, 500)
         })
     })
@@ -361,7 +360,7 @@ function thirdScreen() {
             const currentAmountCurrencyFrom = amountCurrencyFromInOneCopy * amount;
             const convertedAmount = currentAmountCurrencyFrom / amountCurrencyToInOneCopy;
 
-            document.getElementById('converter-result').textContent = `${amount} ${fromRate.Cur_Abbreviation} = ${convertedAmount.toFixed(2)} ${toRate.Cur_Abbreviation}`;
+            document.getElementById('converter-result').textContent = `${convertedAmount.toFixed(2)}`;
         })
         .catch(error => console.error('Error converting currency:', error));
     }
