@@ -98,6 +98,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function getSelectCurrency(currencies) {
     const currencySelect = document.getElementById('select-currency');
+    const currencyFrom = document.getElementById('currency-from');
+    const currencyTo = document.getElementById('currency-to');
     const uniqueCurrencies = new Set();
     for (let i = currencies.length - 1; i >= 0; i--) {
         if (!uniqueCurrencies.has(currencies[i].Cur_Abbreviation)) { 
@@ -105,7 +107,9 @@ function getSelectCurrency(currencies) {
             const option = document.createElement('option');
             option.value = currencies[i].Cur_ID;
             option.textContent = `${currencies[i].Cur_Name} (${currencies[i].Cur_Abbreviation})`;
-            currencySelect.appendChild(option); 
+            currencySelect.appendChild(option);
+            currencyFrom.appendChild(option.cloneNode(true));
+            currencyTo.appendChild(option.cloneNode(true)); 
         }       
     }
 }
@@ -270,6 +274,48 @@ function secondScreen() {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (secondScreen);
 
+
+/***/ }),
+
+/***/ "./src/js/modules/thirdScreen.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/thirdScreen.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function thirdScreen() {
+    const btn = document.getElementById("convert-button");
+    btn.addEventListener("click", () => {
+        convertCurrency();
+    })
+
+    function convertCurrency() {
+        const amount = document.getElementById('amount-from').value;
+        const currencyFrom = document.getElementById('currency-from').value;
+        const currencyTo = document.getElementById('currency-to').value;
+        if (!amount || !currencyFrom || !currencyTo) return;
+
+        Promise.all([
+            fetch(`https://www.nbrb.by/api/exrates/rates/${currencyFrom}`).then(response => response.json()),
+            fetch(`https://www.nbrb.by/api/exrates/rates/${currencyTo}`).then(response => response.json())
+        ])
+        .then(([fromRate, toRate]) => {
+            const amountCurrencyFromInOneCopy = fromRate.Cur_OfficialRate / fromRate.Cur_Scale;
+            const amountCurrencyToInOneCopy = toRate.Cur_OfficialRate / toRate.Cur_Scale;
+            const currentAmountCurrencyFrom = amountCurrencyFromInOneCopy * amount;
+            const convertedAmount = currentAmountCurrencyFrom / amountCurrencyToInOneCopy;
+
+            document.getElementById('converter-result').textContent = `${amount} ${fromRate.Cur_Abbreviation} = ${convertedAmount.toFixed(2)} ${toRate.Cur_Abbreviation}`;
+        })
+        .catch(error => console.error('Error converting currency:', error));
+    }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (thirdScreen);
 
 /***/ }),
 
@@ -25099,7 +25145,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_fetchCurrencies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/fetchCurrencies */ "./src/js/modules/fetchCurrencies.js");
 /* harmony import */ var _modules_firstScreen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/firstScreen */ "./src/js/modules/firstScreen.js");
 /* harmony import */ var _modules_secondScreen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/secondScreen */ "./src/js/modules/secondScreen.js");
-/* harmony import */ var _modules_toggleScreen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/toggleScreen */ "./src/js/modules/toggleScreen.js");
+/* harmony import */ var _modules_thirdScreen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/thirdScreen */ "./src/js/modules/thirdScreen.js");
+/* harmony import */ var _modules_toggleScreen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/toggleScreen */ "./src/js/modules/toggleScreen.js");
+
 
 
 
@@ -25110,10 +25158,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('DOMContentLoaded', () => {
-   (0,_modules_toggleScreen__WEBPACK_IMPORTED_MODULE_3__["default"])();
+   (0,_modules_toggleScreen__WEBPACK_IMPORTED_MODULE_4__["default"])();
    (0,_modules_fetchCurrencies__WEBPACK_IMPORTED_MODULE_0__["default"])();
    (0,_modules_firstScreen__WEBPACK_IMPORTED_MODULE_1__["default"])();
    (0,_modules_secondScreen__WEBPACK_IMPORTED_MODULE_2__["default"])();
+   (0,_modules_thirdScreen__WEBPACK_IMPORTED_MODULE_3__["default"])();
+   
    
    
 })
