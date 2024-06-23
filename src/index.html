@@ -44,19 +44,19 @@
 
     <section class="screen">
         <div class="container">
-            <h2>История валюты</h2>
+            <h2>История курса валюты</h2>
             <div class="date">
-                <label for="start-date">с:</label>
-                <input type="date" id="start-date">
-                <label for="end-date">по:</label>
-                <input type="date" id="end-date">
+                <label for="start-date">с</label>
+                <input class="date__input" type="date" id="start-date">
+                <label for="end-date">по</label>
+                <input class="date__input" type="date" id="end-date">
             </div>
             <div id="change-currency">
-                <label for="select-currency"></label>
+                <div>Выберите валюту:</div>
                 <select id="select-currency"></select>
             </div>
             <div class="search-currency">
-                
+                <div>Долго выбирать? Воспользуйтесь поиском, введя название валюты на <strong>русском языке</strong>:</div>
                 <input type="text" id="search-currency" placeholder="Найти валюту">
             </div>
             <button id="history-button" class="button button__show-rates">Получить историю</button>
