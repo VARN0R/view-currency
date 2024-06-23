@@ -13,22 +13,24 @@
                 <ul class="menu__list">
                     <li class="menu__item">
                         <div><label id="switch" class="switch"><input type="checkbox" id="slider" checked><span class="slider round"></span></label></div>
-                        <div class="menu__text">Валюта за определенный день</div>
+                        <div class="menu__text"><a href="#current-rates">Валюта за определенный день</a></div>
                     </li>
                     <li class="menu__item">
                         <div><label id="switch" class="switch"><input type="checkbox" id="slider" ><span class="slider round"></span></label></div>
-                        <div class="menu__text">История валюты</div>
+                        <div class="menu__text"><a href="#history-rates">История валюты</a></div>
                     </li>
                     <li class="menu__item">
                         <div><label id="switch" class="switch"><input type="checkbox" id="slider"><span class="slider round"></span> </label></div>
-                        <div class="menu__text">Конвертер валюты</div>
+                        <div class="menu__text"><a href="#screen-converter">Конвертер валюты</a></div>
                     </li>
                 </ul>
             </nav>
         </div>
     </section>
+
+    <button id="button-share" class="button">Поделиться</button>
     
-    <section class="screen screen_active">
+    <section id="current-rates" class="screen screen_active">
         <div class="container">
             <h2>Валюта за определенный день</h2>
             <div class="date">
@@ -42,7 +44,7 @@
         </div>
     </section>
 
-    <section class="screen">
+    <section id="history-rates" class="screen">
         <div class="container">
             <h2>История курса валюты</h2>
             <div class="date">

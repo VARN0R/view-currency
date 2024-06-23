@@ -4,6 +4,7 @@
 import fetchCurrencies from "./modules/fetchCurrencies";
 import firstScreen from "./modules/firstScreen";
 import secondScreen from "./modules/secondScreen";
+import shareScreen from "./modules/shareScreen";
 import thirdScreen from "./modules/thirdScreen";
 import toggleScreen from "./modules/toggleScreen";
 
@@ -14,6 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
    firstScreen();
    secondScreen();
    thirdScreen();
+   shareScreen();
    
    
    

@@ -277,6 +277,58 @@ function secondScreen() {
 
 /***/ }),
 
+/***/ "./src/js/modules/shareScreen.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/shareScreen.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function shareScreen() {
+    const btn = document.getElementById("button-share");
+    
+    btn.addEventListener("click", () => {
+        const screenId = location.hash.substring(1);
+        let url = `${location.origin}${location.pathname}#${screenId}`;
+        
+        if (screenId === 'current-rates') {
+            const date = document.getElementById('date-current').value;
+            url += `?date=${date}`;
+        } else if (screenId === 'history-rates') {
+            console.log(screenId);
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const currency = document.getElementById('select-currency').value;
+            url += `?start-date=${startDate}&end-date=${endDate}&currency=${currency}`;
+        } else if (screenId === 'screen-converter') {
+            const amountFrom = document.getElementById('amount-from').value;
+            const currencyFrom = document.getElementById('currency-from').value;
+            const currencyTo = document.getElementById('currency-to').value;
+            url += `?amount-from=${amountFrom}&currency-from=${currencyFrom}&currency-to=${currencyTo}`;
+        }
+        
+        
+        navigator.clipboard.writeText(url).then(() => {
+            const descr = document.createElement("div");
+            descr.id = "descr-link";
+            descr.innerHTML = `Ссылка скопирована`;
+            descr.style.fontSize = "10px";
+            btn.insertAdjacentHTML('afterend', descr.outerHTML);
+            setTimeout(() => {
+               document.getElementById("descr-link").remove();
+            }, 500)
+        })
+    })
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (shareScreen);
+
+
+/***/ }),
+
 /***/ "./src/js/modules/thirdScreen.js":
 /*!***************************************!*\
   !*** ./src/js/modules/thirdScreen.js ***!
@@ -25145,8 +25197,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_fetchCurrencies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/fetchCurrencies */ "./src/js/modules/fetchCurrencies.js");
 /* harmony import */ var _modules_firstScreen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/firstScreen */ "./src/js/modules/firstScreen.js");
 /* harmony import */ var _modules_secondScreen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/secondScreen */ "./src/js/modules/secondScreen.js");
-/* harmony import */ var _modules_thirdScreen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/thirdScreen */ "./src/js/modules/thirdScreen.js");
-/* harmony import */ var _modules_toggleScreen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/toggleScreen */ "./src/js/modules/toggleScreen.js");
+/* harmony import */ var _modules_shareScreen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/shareScreen */ "./src/js/modules/shareScreen.js");
+/* harmony import */ var _modules_thirdScreen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/thirdScreen */ "./src/js/modules/thirdScreen.js");
+/* harmony import */ var _modules_toggleScreen__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/toggleScreen */ "./src/js/modules/toggleScreen.js");
+
 
 
 
@@ -25158,11 +25212,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('DOMContentLoaded', () => {
-   (0,_modules_toggleScreen__WEBPACK_IMPORTED_MODULE_4__["default"])();
+   (0,_modules_toggleScreen__WEBPACK_IMPORTED_MODULE_5__["default"])();
    (0,_modules_fetchCurrencies__WEBPACK_IMPORTED_MODULE_0__["default"])();
    (0,_modules_firstScreen__WEBPACK_IMPORTED_MODULE_1__["default"])();
    (0,_modules_secondScreen__WEBPACK_IMPORTED_MODULE_2__["default"])();
-   (0,_modules_thirdScreen__WEBPACK_IMPORTED_MODULE_3__["default"])();
+   (0,_modules_thirdScreen__WEBPACK_IMPORTED_MODULE_4__["default"])();
+   (0,_modules_shareScreen__WEBPACK_IMPORTED_MODULE_3__["default"])();
    
    
    
